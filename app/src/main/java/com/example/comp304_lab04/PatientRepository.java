@@ -30,7 +30,6 @@ public class PatientRepository {
     {
         PatientDatabase.databaseWriteExecutor.execute(() -> {
             patientDao.update(patient);
-
         });
     }
 

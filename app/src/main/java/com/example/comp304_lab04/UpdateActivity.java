@@ -8,7 +8,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -55,6 +54,14 @@ public class UpdateActivity extends AppCompatActivity {
                 department.setText(patient.getDepartment());
                 nurseID.setText(String.valueOf(patient.getNurseID()));
                 room.setText(patient.getRoom());
+
+                String firstNameValue = firstName.getText().toString();
+                String lastNameValue = lastName.getText().toString();
+                String departmentValue = department.getText().toString();
+                int nurseIDValue = Integer.parseInt(nurseID.getText().toString());
+                String roomValue = room.getText().toString();
+
+                patientViewModel.update(new Patient(firstNameValue, lastNameValue, departmentValue, nurseIDValue, roomValue));
             }
         });
         view.setOnClickListener(new View.OnClickListener() {
@@ -69,29 +76,26 @@ public class UpdateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                patient.setPatientID(PID);
+
                 if (firstName.getText().toString().length() != 0 && lastName.getText().toString().length() != 0
                         && department.getText().toString().length() != 0 &&
                         nurseID.getText().toString().length() != 0 &&
                         room.getText().toString().length() != 0)
                 {
-                    firstName = (EditText) findViewById(R.id.firstname);
-                    lastName = (EditText) findViewById(R.id.lastname);
-                    department = (EditText) findViewById(R.id.department);
-                    nurseID = (EditText) findViewById(R.id.nurseid);
-                    room = (EditText) findViewById(R.id.room);
-                    patientViewModel.findByPatientID(PID).observe((LifecycleOwner) patient, new Observer<Patient>() {
-                        @Override
-                        public void onChanged(Patient patient)
-                        {
-                            String firstNameValue = firstName.getText().toString();
-                            String lastNameValue = lastName.getText().toString();
-                            String departmentValue = department.getText().toString();
-                            int nurseIDValue = Integer.parseInt(nurseID.getText().toString());
-                            String roomValue = room.getText().toString();
+                    EditText firstName1 = (EditText) findViewById(R.id.firstname);
+                    EditText lastName1 = (EditText) findViewById(R.id.lastname);
+                    EditText department1 = (EditText) findViewById(R.id.department);
+                    EditText nurseID1 = (EditText) findViewById(R.id.nurseid);
+                    EditText room1 = (EditText) findViewById(R.id.room);
 
-                            patientViewModel.insert(new Patient(firstNameValue, lastNameValue, departmentValue, nurseIDValue, roomValue));
-                        }
-                    });
+                    String firstNameValue = firstName1.getText().toString();
+                    String lastNameValue = lastName1.getText().toString();
+                    String departmentValue = department1.getText().toString();
+                    int nurseIDValue = Integer.parseInt(nurseID1.getText().toString());
+                    String roomValue = room1.getText().toString();
+
+                    patientViewModel.update(new Patient(firstNameValue, lastNameValue, departmentValue, nurseIDValue, roomValue));
 
                     Toast.makeText(UpdateActivity.this, "Patient updated in list", Toast.LENGTH_SHORT).show();
                 }
