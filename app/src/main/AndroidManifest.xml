@@ -14,6 +14,21 @@
         android:theme="@style/Theme.Comp304_lab04"
         tools:targetApi="31">
         <activity
+            android:name=".PatientViewModel"
+            android:exported="false" />
+        <activity
+            android:name=".PatientDatabase"
+            android:exported="false" />
+        <activity
+            android:name=".PatientRepository"
+            android:exported="false" />
+        <activity
+            android:name=".PatientDao"
+            android:exported="false" />
+        <activity
+            android:name=".Patient"
+            android:exported="false" />
+        <activity
             android:name=".UpdateActivity"
             android:exported="false" />
         <activity
