@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,7 +26,9 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        EditText username = findViewById(R.id.user_name);
+        EditText userfname = findViewById(R.id.user_fname);
+        EditText userlname = findViewById(R.id.user_lname);
+        EditText userdepartment = findViewById(R.id.userdepartment);
         EditText userid = findViewById(R.id.user_id);
         EditText password = findViewById(R.id.user_password);
 
@@ -33,9 +36,17 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                if(username.getText().toString().isEmpty())
+                if(userfname.getText().toString().isEmpty())
                 {
-                    Toast.makeText(getBaseContext(), "Write User Name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "Write First Name", Toast.LENGTH_SHORT).show();
+                }
+                if(userlname.getText().toString().isEmpty())
+                {
+                    Toast.makeText(getBaseContext(), "Write Last Name", Toast.LENGTH_SHORT).show();
+                }
+                if(userdepartment.getText().toString().isEmpty())
+                {
+                    Toast.makeText(getBaseContext(), "Write User department", Toast.LENGTH_SHORT).show();
                 }
                 if(userid.getText().toString().isEmpty())
                 {
@@ -47,11 +58,13 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else
                 {
+
                     Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+                    intent.putExtra("nurseID", userid.getText().toString());
                     startActivity(intent);
                 }
-
             }
         });
+
     }
 }

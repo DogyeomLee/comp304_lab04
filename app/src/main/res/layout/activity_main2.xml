@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/nurseid"
         android:layout_width="413dp"
         android:layout_height="0dp"
         android:layout_marginBottom="369dp"
@@ -19,6 +19,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/patientbut"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/nurseid" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -75,6 +76,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/nurseid" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

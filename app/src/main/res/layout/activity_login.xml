@@ -18,46 +18,71 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <EditText
-        android:id="@+id/user_name"
+        android:id="@+id/user_fname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="225dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginBottom="21dp"
         android:ems="10"
-        android:hint="UserName"
+        android:hint="First Name"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/user_lname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0" />
 
+    <EditText
+        android:id="@+id/user_lname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/user_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/userdepartment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="Department"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/user_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/user_id"
         android:layout_width="208dp"
         android:layout_height="47dp"
-        android:layout_marginTop="69dp"
-        android:layout_marginBottom="69dp"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:hint="NurseID"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="@+id/user_password"
+        app:layout_constraintBottom_toTopOf="@+id/userdepartment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/user_name" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/user_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="269dp"
-        android:layout_marginBottom="269dp"
+        android:layout_marginBottom="259dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="@+id/login"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/cancer"
