@@ -9,6 +9,7 @@ import java.util.List;
 public class PatientRepository {
 
     public PatientDao patientDao;
+    private PatientRepository repository;
     private LiveData<List<Patient>> allPatients;
 
     public PatientRepository(Application application)
@@ -23,6 +24,13 @@ public class PatientRepository {
     public void insert(Patient patient) {
         PatientDatabase.databaseWriteExecutor.execute(() -> {
             patientDao.insert(patient);
+        });
+    }
+    public void update(Patient patient)
+    {
+        PatientDatabase.databaseWriteExecutor.execute(() -> {
+            patientDao.update(patient);
+
         });
     }
 

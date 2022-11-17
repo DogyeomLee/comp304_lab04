@@ -20,18 +20,19 @@ public class MainActivity2 extends AppCompatActivity {
         String nurseID = intent2.getStringExtra("nurseID");
         nurseId.setText(nurseID);
 
-        Button btn1 = (Button) findViewById(R.id.patientbut);
+        Button btn1 = (Button) findViewById(R.id.patientadd);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(getApplicationContext(), PatientActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PatientView.class);
                 startActivity(intent);
             }
         });
 
-        Button btn2 = (Button) findViewById(R.id.testbut);
-        btn2.setOnClickListener(new View.OnClickListener() {
+
+        Button btn3 = (Button) findViewById(R.id.testbut);
+        btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -40,14 +41,6 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-        Button btn3 = (Button) findViewById(R.id.updatebut);
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                Intent intent = new Intent(getApplicationContext(), UpdateActivity.class);
-                startActivity(intent);
-            }
-        });
+
     }
 }

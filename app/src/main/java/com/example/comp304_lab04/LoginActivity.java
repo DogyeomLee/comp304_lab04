@@ -35,32 +35,17 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                if(userfname.getText().toString().isEmpty())
+                if(userfname.getText().toString().length()!=0 && userlname.getText().toString().length()!=0 &&
+                        userdepartment.getText().toString().length()!=0 && userid.getText().toString().length()!=0 &&
+                        password.getText().toString().length()!=0)
                 {
-                    Toast.makeText(getBaseContext(), "Write First Name", Toast.LENGTH_SHORT).show();
-                }
-                if(userlname.getText().toString().isEmpty())
-                {
-                    Toast.makeText(getBaseContext(), "Write Last Name", Toast.LENGTH_SHORT).show();
-                }
-                if(userdepartment.getText().toString().isEmpty())
-                {
-                    Toast.makeText(getBaseContext(), "Write User department", Toast.LENGTH_SHORT).show();
-                }
-                if(userid.getText().toString().isEmpty())
-                {
-                    Toast.makeText(getBaseContext(), "Write User ID", Toast.LENGTH_SHORT).show();
-                }
-                if(password.getText().toString().isEmpty())
-                {
-                    Toast.makeText(getBaseContext(), "Write Password", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-
                     Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
                     intent.putExtra("nurseID", userid.getText().toString());
                     startActivity(intent);
+                }
+                else
+                {
+                    Toast.makeText(getBaseContext(), "Please ensure there are no null values", Toast.LENGTH_SHORT).show();
                 }
             }
         });

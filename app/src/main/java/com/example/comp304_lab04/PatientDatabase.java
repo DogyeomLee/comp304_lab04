@@ -20,12 +20,9 @@ public abstract class PatientDatabase extends RoomDatabase {
     static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    static PatientDatabase getDatabase(final Context context)
-    {
-        if (INSTANCE == null)
-        {
-            synchronized (TestDatabase.class)
-            {
+    static PatientDatabase getDatabase(final Context context) {
+        if (INSTANCE == null) {
+            synchronized (TestDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                                     PatientDatabase.class, "patient_database")
@@ -48,8 +45,9 @@ public abstract class PatientDatabase extends RoomDatabase {
                 // Populate the database in the background.
                 // If you want to start with more patients, just add them.
                 PatientDao dao = INSTANCE.patientDao();
-                dao.deleteAll();
+
             });
         }
     };
 }
+

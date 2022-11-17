@@ -35,6 +35,12 @@ public class Patient
 
     public void setPatientID(int patientID) {this.patientID = patientID;}
 
+    public void setFirstName(String firstName){this.firstName = firstName;}
+    public void setLastName(String lastName){this.lastName = lastName;}
+    public void setDepartment(String department){this.department = department;}
+    public void setNurseID(int nurseID){this.nurseID = nurseID;}
+    public void setRoom(String room){this.room = room;}
+
     public int getPatientID() {
         return patientID;
     }
