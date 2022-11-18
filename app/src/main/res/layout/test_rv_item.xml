@@ -9,14 +9,14 @@
     app:cardCornerRadius="8dp">
 
     <RelativeLayout
-        android:id="@+id/idLLPatient"
+        android:id="@+id/idLLTest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/TVPatientID"
+            android:id="@+id/TVTestID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"
@@ -25,32 +25,32 @@
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/TVfirstName"
+            android:id="@+id/TVTestPatientID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="67dp"
-            android:layout_toEndOf="@+id/TVPatientID"
+            android:layout_toEndOf="@+id/TVTestID"
             android:padding="8dp"
-            android:text="First Name"
+            android:text="Patient ID"
             android:textColor="@color/black"
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/TVlastName"
+            android:id="@+id/TVTestNurseID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="63dp"
-            android:layout_toEndOf="@+id/TVfirstName"
+            android:layout_toEndOf="@+id/TVTestPatientID"
             android:padding="8dp"
-            android:text="Last Name"
+            android:text="Nurse ID"
             android:textColor="@color/black"
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/TVDepartment"
+            android:id="@+id/TVTestBPL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/TVPatientID"
+            android:layout_below="@+id/TVTestID"
             android:layout_marginTop="1dp"
             android:layout_marginBottom="0dp"
             android:padding="8dp"
@@ -59,26 +59,26 @@
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/TVNurseID"
+            android:id="@+id/TVTestBPH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/TVfirstName"
+            android:layout_below="@+id/TVTestID"
             android:layout_marginStart="61dp"
             android:layout_marginTop="1dp"
-            android:layout_toEndOf="@+id/TVDepartment"
+            android:layout_toEndOf="@+id/TVTestBPL"
             android:padding="8dp"
             android:text="Nurse ID"
             android:textColor="@color/black"
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/TVRoom"
+            android:id="@+id/TVTestTemperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/TVlastName"
-            android:layout_marginStart="88dp"
-            android:layout_marginTop="2dp"
-            android:layout_toEndOf="@+id/TVNurseID"
+            android:layout_below="@+id/TVTestNurseID"
+            android:layout_marginStart="-55dp"
+            android:layout_marginTop="1dp"
+            android:layout_toEndOf="@+id/TVTestNurseID"
             android:padding="8dp"
             android:text="Room"
             android:textColor="@color/black"

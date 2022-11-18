@@ -86,6 +86,7 @@ public class UpdateActivity extends AppCompatActivity {
         setResult(RESULT_OK, intent);
 
         Toast.makeText(this, "Patient has been saved.", Toast.LENGTH_SHORT).show();
+
     }
 }
 

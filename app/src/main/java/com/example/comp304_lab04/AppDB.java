@@ -10,19 +10,16 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 @Database(entities = {Patient.class}, version = 1, exportSchema = false)
-public abstract class PatientDatabase extends RoomDatabase {
+public abstract class AppDB extends RoomDatabase {
 
     public abstract PatientDao patientDao();
-    private static PatientDatabase instance;
+    private static AppDB instance;
 
-    public static synchronized PatientDatabase getDatabase(Context context) {
+    public static synchronized AppDB getDatabase(Context context) {
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),
-                            PatientDatabase.class, "app_database")
+                            AppDB.class, "app_database")
                     .fallbackToDestructiveMigration()
                     .addCallback(roomCallback)
                     .build();
@@ -39,7 +36,7 @@ public abstract class PatientDatabase extends RoomDatabase {
     };
 
     private static class PopulateDbAsyncTask extends AsyncTask<Void,Void,Void> {
-        PopulateDbAsyncTask(PatientDatabase instance){
+        PopulateDbAsyncTask(AppDB instance){
             PatientDao patientDao = instance.patientDao();
         }
         @Override

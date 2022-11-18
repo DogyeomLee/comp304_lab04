@@ -40,45 +40,4 @@
         app:backgroundTint="#8C8989"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <!--    <EditText-->
-<!--        android:id="@+id/id"-->
-<!--        android:layout_width="112dp"-->
-<!--        android:layout_height="39dp"-->
-<!--        android:layout_marginBottom="3dp"-->
-<!--        android:ems="10"-->
-<!--        android:inputType="textPersonName"-->
-<!--&lt;!&ndash;        app:layout_constraintBottom_toTopOf="@+id/Update"&ndash;&gt;-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.862"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView10" -->
-<!--        />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/Add"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Add"-->
-<!--        tools:layout_editor_absoluteX="60dp"-->
-<!--        tools:layout_editor_absoluteY="621dp" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/Update"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="120dp"-->
-<!--        android:text="update"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/Add"-->
-<!--        tools:layout_editor_absoluteY="621dp" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/textView10"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginEnd="4dp"-->
-<!--        android:text="write the patient id for update"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        tools:layout_editor_absoluteY="560dp" />-->
-
 </androidx.constraintlayout.widget.ConstraintLayout>
