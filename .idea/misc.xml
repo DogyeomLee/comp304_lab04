@@ -3,13 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ari-c/OneDrive/Desktop/Y3S1/Mobile_App_Development/Assignments/AriCerrahyan_COMP304Sec004_Lab04/AriCerrahyan_COMP304Sec004_Lab04/app/src/main/res/layout/activity_login.xml" value="0.3625" />
         <entry key="..\:/Users/ari-c/OneDrive/Desktop/Y3S1/Mobile_App_Development/Assignments/AriCerrahyan_COMP304Sec004_Lab04/AriCerrahyan_COMP304Sec004_Lab04/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/ari-c/OneDrive/Desktop/Y3S1/Mobile_App_Development/Assignments/AriCerrahyan_COMP304Sec004_Lab04/AriCerrahyan_COMP304Sec004_Lab04/app/src/main/res/layout/activity_main2.xml" value="0.3625" />
         <entry key="..\:/Users/ari-c/OneDrive/Desktop/Y3S1/Mobile_App_Development/Assignments/AriCerrahyan_COMP304Sec004_Lab04/AriCerrahyan_COMP304Sec004_Lab04/app/src/main/res/layout/activity_patient.xml" value="0.25" />
         <entry key="..\:/Users/ari-c/OneDrive/Desktop/Y3S1/Mobile_App_Development/Assignments/AriCerrahyan_COMP304Sec004_Lab04/AriCerrahyan_COMP304Sec004_Lab04/app/src/main/res/layout/activity_patient2.xml" value="0.3625" />
+        <entry key="..\:/Users/ari-c/OneDrive/Desktop/Y3S1/Mobile_App_Development/Assignments/AriCerrahyan_COMP304Sec004_Lab04/AriCerrahyan_COMP304Sec004_Lab04/app/src/main/res/layout/activity_patient_dao.xml" value="0.3625" />
         <entry key="..\:/Users/ari-c/OneDrive/Desktop/Y3S1/Mobile_App_Development/Assignments/AriCerrahyan_COMP304Sec004_Lab04/AriCerrahyan_COMP304Sec004_Lab04/app/src/main/res/layout/activity_patient_database.xml" value="0.3625" />
+        <entry key="..\:/Users/ari-c/OneDrive/Desktop/Y3S1/Mobile_App_Development/Assignments/AriCerrahyan_COMP304Sec004_Lab04/AriCerrahyan_COMP304Sec004_Lab04/app/src/main/res/layout/activity_patient_view_model.xml" value="0.3625" />
         <entry key="..\:/Users/ari-c/OneDrive/Desktop/Y3S1/Mobile_App_Development/Assignments/AriCerrahyan_COMP304Sec004_Lab04/AriCerrahyan_COMP304Sec004_Lab04/app/src/main/res/layout/activity_test.xml" value="0.3625" />
-        <entry key="..\:/Users/ari-c/OneDrive/Desktop/Y3S1/Mobile_App_Development/Assignments/AriCerrahyan_COMP304Sec004_Lab04/AriCerrahyan_COMP304Sec004_Lab04/app/src/main/res/layout/activity_update.xml" value="0.3625" />
+        <entry key="..\:/Users/ari-c/OneDrive/Desktop/Y3S1/Mobile_App_Development/Assignments/AriCerrahyan_COMP304Sec004_Lab04/AriCerrahyan_COMP304Sec004_Lab04/app/src/main/res/layout/activity_update.xml" value="0.353887399463807" />
         <entry key="..\:/Users/ari-c/OneDrive/Desktop/Y3S1/Mobile_App_Development/Assignments/AriCerrahyan_COMP304Sec004_Lab04/AriCerrahyan_COMP304Sec004_Lab04/app/src/main/res/layout/patient_recycleview_item.xml" value="0.3614583333333333" />
         <entry key="..\:/Users/ari-c/OneDrive/Desktop/Y3S1/Mobile_App_Development/Assignments/AriCerrahyan_COMP304Sec004_Lab04/AriCerrahyan_COMP304Sec004_Lab04/app/src/main/res/layout/patient_rv_item.xml" value="0.33" />
         <entry key="..\:/comp304_lab04/app/src/main/res/layout/activity_login.xml" value="0.35280797101449274" />

@@ -6,7 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".UpdateActivity">
-
+    <TextView
+        android:id="@+id/patientID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="ID"
+        android:textSize="25dp"/>
     <EditText
         android:id="@+id/firstname"
         android:layout_width="match_parent"
