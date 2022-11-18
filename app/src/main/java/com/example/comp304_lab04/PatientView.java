@@ -27,9 +27,9 @@ public class PatientView extends AppCompatActivity {
 
         patientViewModel = new ViewModelProvider(this).get(PatientViewModel.class);
 
-        TextView view = (TextView) findViewById(R.id.patienview);
+//        TextView view = (TextView) findViewById(R.id.patienview);
 
-        EditText patientid = (EditText) findViewById(R.id.id);
+//        EditText patientid = (EditText) findViewById(R.id.id);
 
         patientViewModel.getAllPatients().observe(this, new Observer<List<Patient>>() {
             @Override
@@ -45,37 +45,37 @@ public class PatientView extends AppCompatActivity {
                     output+= patient.getNurseID() +", ";
                     output+= patient.getRoom() +"\n";
                 }
-                view.setText(output);
+//                view.setText(output);
                 patientViewModel.getAllPatients();
             }
         });
 
-        Button add = (Button) findViewById(R.id.Add);
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                Intent intent = new Intent(getApplicationContext(), PatientActivity.class);
-                startActivity(intent);
-            }
-        });
-        Button update = (Button) findViewById(R.id.Update);
-        update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                if(patientid.getText().toString().length() != 0)
-                {
-                    Intent intent = new Intent(getApplicationContext(), UpdateActivity.class);
-                    intent.putExtra("PID", Integer.parseInt(patientid.getText().toString()));
-                    startActivity(intent);
-                }
-                else
-                {
-                    Toast.makeText(PatientView.this, "Please enter the Patient ID", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
+//        Button add = (Button) findViewById(R.id.Add);
+//        add.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view)
+//            {
+//                Intent intent = new Intent(getApplicationContext(), PatientActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//        Button update = (Button) findViewById(R.id.Update);
+//        update.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view)
+//            {
+//                if(patientid.getText().toString().length() != 0)
+//                {
+//                    Intent intent = new Intent(getApplicationContext(), UpdateActivity.class);
+//                    intent.putExtra("PID", Integer.parseInt(patientid.getText().toString()));
+//                    startActivity(intent);
+//                }
+//                else
+//                {
+//                    Toast.makeText(PatientView.this, "Please enter the Patient ID", Toast.LENGTH_SHORT).show();
+//                }
+//
+//            }
+//        });
     }
 }

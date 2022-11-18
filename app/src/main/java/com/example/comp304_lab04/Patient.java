@@ -20,12 +20,12 @@ public class Patient
     private String department;
 
     @NonNull
-    private int nurseID;
+    private String nurseID;
 
     @NonNull
     private String room;
 
-    public Patient(@NonNull String firstName, @NonNull String lastName, @NonNull String department, @NonNull int nurseID, @NonNull String room) {
+    public Patient(@NonNull String firstName, @NonNull String lastName, @NonNull String department, @NonNull String nurseID, @NonNull String room) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.department = department;
@@ -33,33 +33,29 @@ public class Patient
         this.room = room;
     }
 
-    public void setPatientID(int patientID) {this.patientID = patientID;}
-
     public int getPatientID() {
         return patientID;
     }
-
-    @NonNull
     public String getFirstName() {
         return firstName;
     }
-
-    @NonNull
     public String getLastName() {
         return lastName;
     }
-
-    @NonNull
     public String getDepartment() {
         return department;
     }
-
-    public int getNurseID() {
+    public String getNurseID() {
         return nurseID;
     }
-
-    @NonNull
     public String getRoom() {
         return room;
     }
+
+    public void setPatientID(int newPatientID){this.patientID = newPatientID;}
+    public void setFirstName(String newFirstName){this.firstName = newFirstName;}
+    public void setLastName(String newLastName){this.lastName = newLastName;}
+    public void setDepartment(String newDepartment){this.department = newDepartment;}
+    public void setNurseID(String newNurseID){this.nurseID = newNurseID;}
+    public void setRoom(String newRoom){this.room = newRoom;}
 }

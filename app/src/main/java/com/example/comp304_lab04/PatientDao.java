@@ -28,6 +28,6 @@ public interface PatientDao
     @Query("Select * FROM patient_table where patientID = :patientID")
     LiveData<Patient> getByPatientID(int patientID);
 
-    @Query("Select * FROM patient_table")
+    @Query("Select * FROM patient_table ORDER BY firstName ASC")
     LiveData<List<Patient>> getAllPatients();
 }

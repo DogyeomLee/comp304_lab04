@@ -1,5 +1,8 @@
 package com.example.comp304_lab04;
+
+
 import android.content.Context;
+import android.os.AsyncTask;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
@@ -14,40 +17,35 @@ import java.util.concurrent.Executors;
 public abstract class PatientDatabase extends RoomDatabase {
 
     public abstract PatientDao patientDao();
+    private static PatientDatabase instance;
 
-    private static volatile PatientDatabase INSTANCE;
-    private static final int NUMBER_OF_THREADS = 4;
-    static final ExecutorService databaseWriteExecutor =
-            Executors.newFixedThreadPool(NUMBER_OF_THREADS);
-
-    static PatientDatabase getDatabase(final Context context) {
-        if (INSTANCE == null) {
-            synchronized (TestDatabase.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                                    PatientDatabase.class, "patient_database")
-                            .addCallback(sRoomDatabaseCallback)
-                            .build();
-                }
-            }
+    public static synchronized PatientDatabase getDatabase(Context context) {
+        if (instance == null) {
+            instance = Room.databaseBuilder(context.getApplicationContext(),
+                            PatientDatabase.class, "app_database")
+                    .fallbackToDestructiveMigration()
+                    .addCallback(roomCallback)
+                    .build();
         }
-        return INSTANCE;
+        return instance;
     }
 
-    private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
+    private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback() {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
-
-            // If you want to keep data through app restarts,
-            // comment out the following block
-            databaseWriteExecutor.execute(() -> {
-                // Populate the database in the background.
-                // If you want to start with more patients, just add them.
-                PatientDao dao = INSTANCE.patientDao();
-
-            });
+            new PopulateDbAsyncTask(instance).execute();
         }
     };
+
+    private static class PopulateDbAsyncTask extends AsyncTask<Void,Void,Void> {
+        PopulateDbAsyncTask(PatientDatabase instance){
+            PatientDao patientDao = instance.patientDao();
+        }
+        @Override
+        protected Void doInBackground(Void... voids){
+            return null;
+        }
+    }
 }
 

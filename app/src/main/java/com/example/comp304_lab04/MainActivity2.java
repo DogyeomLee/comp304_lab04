@@ -25,7 +25,7 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(getApplicationContext(), PatientView.class);
+                Intent intent = new Intent(getApplicationContext(), PatientActivity.class);
                 startActivity(intent);
             }
         });

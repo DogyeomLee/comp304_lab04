@@ -13,98 +13,158 @@ import androidx.lifecycle.ViewModelProvider;
 
 public class UpdateActivity extends AppCompatActivity {
     private PatientViewModel patientViewModel;
-    private EditText firstName;
-    private EditText lastName;
-    private EditText department;
-    private EditText nurseID;
-    private EditText room;
-    private EditText patientid;
+    private EditText firstName, lastName, department, nurseID, room, patientid;
+    private Button saveBtn;
     private int patientID;
     private Patient patient;
     private PatientDao patientDao;
     private PatientDatabase patientDatabase;
 
+    public static final String EXTRA_PATIENTID = "PATIENT_ID";
+    public static final String EXTRA_FIRSTNAME = "FIRSTNAME";
+    public static final String EXTRA_LASTNAME = "LASTNAME";
+    public static final String EXTRA_DEPARTMENT = "DEPARTMENT";
+    public static final String EXTRA_NURSEID = "NURSE_ID";
+    public static final String EXTRA_ROOM = "ROOM";
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
-        patientViewModel = new ViewModelProvider(this).get(PatientViewModel.class);
-
-        Intent intent2 = getIntent();
-        int PID = intent2.getIntExtra("PID", patientID);
-
-        Button update = (Button) findViewById(R.id.button2);
-        Button view = (Button) findViewById(R.id.button3);
+        patientid = (EditText) findViewById(R.id.patientid);
         firstName = (EditText) findViewById(R.id.firstname);
         lastName = (EditText) findViewById(R.id.lastname);
         department = (EditText) findViewById(R.id.department);
         nurseID = (EditText) findViewById(R.id.nurseid);
         room = (EditText) findViewById(R.id.room);
-        patientid = (EditText) findViewById(R.id.patientid);
+        saveBtn = (Button) findViewById(R.id.btnPatientSave);
 
+        Intent intent = getIntent();
+        if (intent.hasExtra(EXTRA_PATIENTID)) {
+            patientid.setText(intent.getStringExtra(EXTRA_PATIENTID));
+            firstName.setText(intent.getStringExtra(EXTRA_FIRSTNAME));
+            lastName.setText(intent.getStringExtra(EXTRA_LASTNAME));
+            department.setText(intent.getStringExtra(EXTRA_DEPARTMENT));
+            nurseID.setText(intent.getStringExtra(EXTRA_NURSEID));
+            room.setText(intent.getStringExtra(EXTRA_ROOM));
+        }
 
-        patientViewModel.findByPatientID(PID).observe(this, new Observer<Patient>() {
+        saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(Patient patient)
-            {
-                firstName.setText(patient.getFirstName());
-                lastName.setText(patient.getLastName());
-                department.setText(patient.getDepartment());
-                nurseID.setText(String.valueOf(patient.getNurseID()));
-                room.setText(patient.getRoom());
+            public void onClick(View v) {
+                String first = firstName.getText().toString();
+                String last = lastName.getText().toString();
+                String dept = department.getText().toString();
+                String nurse_id = nurseID.getText().toString();
+                String room_id = room.getText().toString();
 
-                String firstNameValue = firstName.getText().toString();
-                String lastNameValue = lastName.getText().toString();
-                String departmentValue = department.getText().toString();
-                int nurseIDValue = Integer.parseInt(nurseID.getText().toString());
-                String roomValue = room.getText().toString();
-
-                patientViewModel.update(new Patient(firstNameValue, lastNameValue, departmentValue, nurseIDValue, roomValue));
-            }
-        });
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PatientView.class);
-                startActivity(intent);
-            }
-        });
-
-        update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                patient.setPatientID(PID);
-
-                if (firstName.getText().toString().length() != 0 && lastName.getText().toString().length() != 0
-                        && department.getText().toString().length() != 0 &&
-                        nurseID.getText().toString().length() != 0 &&
-                        room.getText().toString().length() != 0)
-                {
-                    EditText firstName1 = (EditText) findViewById(R.id.firstname);
-                    EditText lastName1 = (EditText) findViewById(R.id.lastname);
-                    EditText department1 = (EditText) findViewById(R.id.department);
-                    EditText nurseID1 = (EditText) findViewById(R.id.nurseid);
-                    EditText room1 = (EditText) findViewById(R.id.room);
-
-                    String firstNameValue = firstName1.getText().toString();
-                    String lastNameValue = lastName1.getText().toString();
-                    String departmentValue = department1.getText().toString();
-                    int nurseIDValue = Integer.parseInt(nurseID1.getText().toString());
-                    String roomValue = room1.getText().toString();
-
-                    patientViewModel.update(new Patient(firstNameValue, lastNameValue, departmentValue, nurseIDValue, roomValue));
-
-                    Toast.makeText(UpdateActivity.this, "Patient updated in list", Toast.LENGTH_SHORT).show();
+                if (first.isEmpty() || last.isEmpty() || dept.isEmpty() || nurse_id.isEmpty() || room_id.isEmpty()) {
+                    Toast.makeText(UpdateActivity.this, "Please enter the fields", Toast.LENGTH_SHORT).show();
+                    return;
                 }
-                else
-                {
-                    Toast.makeText(UpdateActivity.this, "Please ensure there are no null values or Check patient ID", Toast.LENGTH_SHORT).show();
-                }
+
+                saveCourse(first, last, dept, nurse_id, room_id);
             }
         });
     }
 
+    private void saveCourse(String first, String last, String dept, String nurse_id, String room_id){
+
+        Intent intent = new Intent();
+
+        intent.putExtra(EXTRA_FIRSTNAME, first);
+        intent.putExtra(EXTRA_LASTNAME, last);
+        intent.putExtra(EXTRA_DEPARTMENT, dept);
+        intent.putExtra(EXTRA_NURSEID, nurse_id);
+        intent.putExtra(EXTRA_ROOM, room_id);
+
+        int id = getIntent().getIntExtra(EXTRA_PATIENTID, -1);
+        if (id != -1){
+            intent.putExtra(EXTRA_PATIENTID, id);
+        }
+
+        setResult(RESULT_OK, intent);
+
+        Toast.makeText(this, "Patient has been saved.", Toast.LENGTH_SHORT).show();
+    }
 }
+//        patientViewModel = new ViewModelProvider(this).get(PatientViewModel.class);
+//
+//        Intent intent2 = getIntent();
+//        int PID = intent2.getIntExtra("PID", patientID);
+//
+//        Button saveBtn = (Button) findViewById(R.id.btnPatientSave);
+//        firstName = (EditText) findViewById(R.id.firstname);
+//        lastName = (EditText) findViewById(R.id.lastname);
+//        department = (EditText) findViewById(R.id.department);
+//        nurseID = (EditText) findViewById(R.id.nurseid);
+//        room = (EditText) findViewById(R.id.room);
+//        patientid = (EditText) findViewById(R.id.patientid);
+
+
+//        patientViewModel.findByPatientID(PID).observe(this, new Observer<Patient>() {
+//            @Override
+//            public void onChanged(Patient patient)
+//            {
+//
+//                patientid.setText(patient.getPatientID());
+//                firstName.setText(patient.getFirstName());
+//                lastName.setText(patient.getLastName());
+//                department.setText(patient.getDepartment());
+//                nurseID.setText(String.valueOf(patient.getNurseID()));
+//                room.setText(patient.getRoom());
+//
+//                String firstNameValue = firstName.getText().toString();
+//                String lastNameValue = lastName.getText().toString();
+//                String departmentValue = department.getText().toString();
+//                int nurseIDValue = Integer.parseInt(nurseID.getText().toString());
+//                String roomValue = room.getText().toString();
+//
+//                patientViewModel.update(new Patient(firstNameValue, lastNameValue, departmentValue, nurseIDValue, roomValue));
+//            }
+//        });
+//        view.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), PatientView.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        update.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view)
+//            {
+//                patient.setPatientID(PID);
+//
+//                if (firstName.getText().toString().length() != 0 && lastName.getText().toString().length() != 0
+//                        && department.getText().toString().length() != 0 &&
+//                        nurseID.getText().toString().length() != 0 &&
+//                        room.getText().toString().length() != 0)
+//                {
+//                    EditText firstName1 = (EditText) findViewById(R.id.firstname);
+//                    EditText lastName1 = (EditText) findViewById(R.id.lastname);
+//                    EditText department1 = (EditText) findViewById(R.id.department);
+//                    EditText nurseID1 = (EditText) findViewById(R.id.nurseid);
+//                    EditText room1 = (EditText) findViewById(R.id.room);
+//
+//                    String firstNameValue = firstName1.getText().toString();
+//                    String lastNameValue = lastName1.getText().toString();
+//                    String departmentValue = department1.getText().toString();
+//                    int nurseIDValue = Integer.parseInt(nurseID1.getText().toString());
+//                    String roomValue = room1.getText().toString();
+//
+//                    patientViewModel.update(new Patient(firstNameValue, lastNameValue, departmentValue, nurseIDValue, roomValue));
+//
+//                    Toast.makeText(UpdateActivity.this, "Patient updated in list", Toast.LENGTH_SHORT).show();
+//                }
+//                else
+//                {
+//                    Toast.makeText(UpdateActivity.this, "Please ensure there are no null values or Check patient ID", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+
+
