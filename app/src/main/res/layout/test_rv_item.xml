@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="Patient ID"
+            android:text="Test ID"
             android:textColor="@color/black"
             android:textSize="15sp" />
 
@@ -54,7 +54,7 @@
             android:layout_marginTop="1dp"
             android:layout_marginBottom="0dp"
             android:padding="8dp"
-            android:text="Department"
+            android:text="BPL"
             android:textColor="@color/black"
             android:textSize="15sp" />
 
@@ -67,7 +67,7 @@
             android:layout_marginTop="1dp"
             android:layout_toEndOf="@+id/TVTestBPL"
             android:padding="8dp"
-            android:text="Nurse ID"
+            android:text="BPH"
             android:textColor="@color/black"
             android:textSize="15sp" />
 
@@ -80,7 +80,7 @@
             android:layout_marginTop="1dp"
             android:layout_toEndOf="@+id/TVTestNurseID"
             android:padding="8dp"
-            android:text="Room"
+            android:text="Temperature"
             android:textColor="@color/black"
             android:textSize="15sp" />
     </RelativeLayout>

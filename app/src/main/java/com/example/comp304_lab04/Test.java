@@ -23,9 +23,9 @@ public class Test
     private String bph;
 
     @NonNull
-    private String temperature;
+    private int temperature;
 
-    public Test(@NonNull int patientID, @NonNull String nurseID, @NonNull String bpl, @NonNull String bph, @NonNull String temperature) {
+    public Test(@NonNull int patientID, @NonNull String nurseID, @NonNull String bpl, @NonNull String bph, @NonNull int temperature) {
         this.patientID = patientID;
         this.nurseID = nurseID;
         this.bpl = bpl;
@@ -48,7 +48,7 @@ public class Test
     public String getBph() {
         return bph;
     }
-    public String getTemperature() {
+    public int getTemperature() {
         return temperature;
     }
 
@@ -57,5 +57,5 @@ public class Test
     public void setNurseID(String newNurseID){this.nurseID = newNurseID;}
     public void setBpl(String newBpl){this.bpl = newBpl;}
     public void setBph(String newBph){this.bph = newBph;}
-    public void setTemperature(String newTemperature){this.temperature = newTemperature;}
+    public void setTemperature(int newTemperature){this.temperature = newTemperature;}
 }

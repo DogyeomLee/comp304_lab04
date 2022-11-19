@@ -8,75 +8,69 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
+public class TestRepository {
 
+    public TestDao testDao;
+    private LiveData<List<Test>> allTests;
 
-// <!!-- REPLACE ANYTHING WITH PATIENT RELATED INFORMATION TO TEST RELATED INFORMATION --!!>
-
-
-
-public class PatientRepository {
-
-    public PatientDao patientDao;
-    private LiveData<List<Patient>> allPatients;
-
-    public PatientRepository(Application application)
+    public TestRepository(Application application)
     {
         AppDB db = AppDB.getDatabase(application);
-        patientDao = db.patientDao();
-        allPatients = patientDao.getAllPatients();
+        testDao = db.testDao();
+        allTests = testDao.getAllTests();
     }
 
-    public void insert(Patient patient) {
-        new InsertPatientAsyncTask(patientDao).execute(patient);
+    public void insert(Test test) {
+        new InsertTestAsyncTask(testDao).execute(test);
     }
 
-    public void update(Patient patient) {
-        new UpdatePatientAsyncTask(patientDao).execute(patient);
+    public void update(Test test) {
+        new UpdateTestAsyncTask(testDao).execute(test);
     }
 
-    public void delete(Patient patient){
-        new DeletePatientAsyncTask(patientDao).execute(patient);
+    public void delete(Test test){
+        new DeleteTestAsyncTask(testDao).execute(test);
     }
 
-    public LiveData<List<Patient>> getAllPatients() {return allPatients; }
+    public LiveData<List<Test>> getAllTests() {return allTests; }
 
-    public LiveData<Patient> findbyPatientID(int patientID) {return patientDao.getByPatientID(patientID); }
+    public LiveData<Test> findbyTestID(int testID) {return testDao.getByTestID(testID); }
 
-    private static class InsertPatientAsyncTask extends AsyncTask<Patient, Void, Void> {
-        private PatientDao patientDao;
-        private InsertPatientAsyncTask(PatientDao patientDao){
-            this.patientDao = patientDao;
+    private static class InsertTestAsyncTask extends AsyncTask<Test, Void, Void> {
+        private TestDao testDao;
+        private InsertTestAsyncTask(TestDao testDao){
+            this.testDao = testDao;
         }
 
         @Override
-        protected Void doInBackground(Patient... model) {
-            patientDao.insert(model[0]);
+        protected Void doInBackground(Test... model) {
+            testDao.insert(model[0]);
             return null;
         }
     }
 
-    private static class UpdatePatientAsyncTask extends AsyncTask<Patient, Void, Void>{
-        private PatientDao patientDao;
-        private UpdatePatientAsyncTask(PatientDao patientDao){
-            this.patientDao = patientDao;
+    private static class UpdateTestAsyncTask extends AsyncTask<Test, Void, Void>{
+        private TestDao testDao;
+        private UpdateTestAsyncTask(TestDao testDao){
+            this.testDao = testDao;
         }
 
         @Override
-        protected Void doInBackground(Patient... model) {
-            patientDao.update(model[0]);
+        protected Void doInBackground(Test... model) {
+            testDao.update(model[0]);
             return null;
         }
     }
 
-    private static class DeletePatientAsyncTask extends AsyncTask<Patient, Void, Void>{
-        private PatientDao patientDao;
-        private DeletePatientAsyncTask(PatientDao patientDao){
-            this.patientDao = patientDao;
+    private static class DeleteTestAsyncTask extends AsyncTask<Test, Void, Void>{
+        private TestDao testDao;
+        private DeleteTestAsyncTask(TestDao testDao){
+            this.testDao = testDao;
         }
 
         @Override
-        protected Void doInBackground(Patient... model) {
-            patientDao.delete(model[0]);
+        protected Void doInBackground(Test... model) {
+            testDao.delete(model[0]);
             return null;
         }
     }

@@ -10,10 +10,11 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Patient.class}, version = 1, exportSchema = false)
+@Database(entities = {Patient.class, Test.class}, version = 1, exportSchema = false)
 public abstract class AppDB extends RoomDatabase {
 
     public abstract PatientDao patientDao();
+    public abstract TestDao testDao();
     private static AppDB instance;
 
     public static synchronized AppDB getDatabase(Context context) {
@@ -38,6 +39,7 @@ public abstract class AppDB extends RoomDatabase {
     private static class PopulateDbAsyncTask extends AsyncTask<Void,Void,Void> {
         PopulateDbAsyncTask(AppDB instance){
             PatientDao patientDao = instance.patientDao();
+            TestDao testDao = instance.testDao();
         }
         @Override
         protected Void doInBackground(Void... voids){

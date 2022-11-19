@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TestUpdateActivity">
+    <TextView
+        android:id="@+id/TestID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="ID"
+        android:textSize="25dp"/>
+    <EditText
+        android:id="@+id/PatientIDET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Patient ID"/>
+
+    <EditText
+        android:id="@+id/NurseIDET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Nurse ID"/>
+
+    <EditText
+        android:id="@+id/BplET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="BPL"/>
+
+    <EditText
+        android:id="@+id/BphET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="BPH"/>
+
+    <EditText
+        android:id="@+id/TemperatureET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Temperature"/>
+
+    <Button
+        android:id="@+id/btnTestSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:text="Save"
+        android:textAllCaps="false" />
+
+</LinearLayout>
